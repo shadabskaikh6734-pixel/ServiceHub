@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='provider_style.css'>
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="seeker">
+  <div class="dashboard">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h2>ServiceHub</h2>
+
+    <div class="menu">
+
+      <select id="filterCategory" onchange="applyFilters()">
+        <option value="">All Categories</option>
+        <option>Plumbing</option>
+        <option>Electrical</option>
+        <option>Cleaning</option>
+        <option>Appliance</option>
+      </select>
+
+      <input type="text" id="filterArea" placeholder="Enter Area" oninput="applyFilters()">
+
+      
+  <button onclick="loadAllServices()">Explore Services</button>
+
+  <button onclick="filterQuick()">⚡ Quick Service</button>
+  <button id="notificationBtn" onclick="loadUserBookings()">📋 My Bookings</button>
+      <button id="logoutBtn" onclick="logout()" style="display:none;">🚪 Logout</button>
+  
+
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content" id="contentArea">
+
+   <div class="top-search"  id="topSearchBar">
+  <input type="text" id="searchInput" placeholder="🔍 Search services..." oninput="applyFilters()">
+
+  <button  class="address-btn" onclick="openAddress()">📍 Address</button>
+</div>
+
+    <h3 id="quickTitle"></h3>
+<div id="results"></div>
+<div id="pagination"></div>
+
+  </div>
+
+</div>
+
+<div id="overlay" style="
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 999;
+"></div>
+
+
+<div id="bookingPopup" class="booking-modal">
+
+  <h3>Confirm Booking</h3>
+
+  <p>Do you want to book this service?</p>
+
+  <div class="modal-actions">
+    <button class="btn-confirm" onclick="submitBooking()">Confirm</button>
+    <button class="btn-cancel" onclick="closePopup()">Cancel</button>
+  </div>
+
+</div>
+
+<div id="addressPopup" class="modal">
+
+  <h3>📍 Your Address</h3>
+
+  <p id="addressWarning" class="warning">
+    ⚠ Please add your address before booking
+  </p>
+
+  <input type="text" id="newAddress" placeholder="Enter full address">
+
+  <div class="modal-actions">
+    <button class="btn-save" onclick="saveAddress()">Save</button>
+    <button class="btn-cancel" onclick="closeAddress()">Cancel</button>
+  </div>
+
+</div>
+
+
+</div>
+
+ <script src='seeker_script.js'></script>
+</body>
+</html>

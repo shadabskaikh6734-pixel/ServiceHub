@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ServiceHub — Provider Dashboard</title>
+  <link rel="stylesheet" href="provider_dashboard_v2.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</head>
+<body>
+  <div class="app-shell">
+
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">⌂</div>
+        <div>
+          <div class="brand-name">SERVICE <span>HUB</span></div>
+          <div class="brand-tagline">Connect . Discover . Get Service</div>
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <button class="icon-btn" title="Notifications" onclick="showNotice()">♧<span class="notification-dot"></span></button>
+        <div class="profile-mini">
+          <div class="avatar" id="topAvatar">P</div>
+          <div class="profile-mini-text">
+            <strong id="topProviderName">Provider</strong>
+            <span>Provider</span>
+          </div>
+          <span class="chevron">⌄</span>
+        </div>
+        <button class="logout-top" onclick="logout()">↪ <span>Logout</span></button>
+      </div>
+    </header>
+
+    <div class="main-shell">
+      <aside class="sidebar">
+        <nav class="menu">
+          <button class="nav-btn active" data-page="dashboard" onclick="showDashboard()">
+            <span class="nav-icon">⌂</span><span>Dashboard</span>
+          </button>
+          <button class="nav-btn" data-page="services" onclick="loadServices()">
+            <span class="nav-icon">⚒</span><span>My Services</span>
+          </button>
+          <button class="nav-btn" data-page="bookings" onclick="loadBookings()">
+            <span class="nav-icon">▣</span><span>Bookings</span>
+          </button>
+          <button class="nav-btn" data-page="add" onclick="loadAdd()">
+            <span class="nav-icon">⊕</span><span>Add Service</span>
+          </button>
+        </nav>
+      </aside>
+
+      <main class="content" id="contentArea">
+        <div class="loading">Loading dashboard...</div>
+      </main>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="provider_script.js"></script>
+</body>
+</html>

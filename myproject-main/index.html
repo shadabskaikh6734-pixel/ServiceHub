@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>ServiceHub</title>
+
+  <link rel='stylesheet' href='style.css'>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- LEFT -->
+  <div class="left">
+    <h1>ServiceHub</h1>
+
+    <h2>
+      Join India's fastest growing <br>
+      <span>service platform</span>
+    </h2>
+
+    <p>
+      Customers aur professionals dono ke liye — free registration, verified profiles.
+    </p>
+
+    <div class="features">
+      <div class="feature"><div class="icon">✔</div><span>Background verified providers</span></div>
+      <div class="feature"><div class="icon">🔒</div><span>Secure payments & data</span></div>
+      <div class="feature"><div class="icon">⏱</div><span>Same-day booking available</span></div>
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right">
+    <div class="form-wrapper">
+
+     <p class="top-text" id="topText">
+  Already have an account? 
+  <span onclick="showLogin()">Sign in</span>
+</p>
+
+      <div class="form-box">
+
+        <!-- REGISTER -->
+        <div id="registerForm">
+
+          <h2>Create your account</h2>
+          <p class="subtitle">Fill in the details below to get started</p>
+
+          <div class="toggle">
+              <button id="seekerBtn" onclick="setRole('seeker')">              I need a service
+            </button>
+            <button id="providerBtn" onclick="setRole('provider')">
+              I'm a provider
+            </button>
+          </div>
+
+          <div class="row">
+            <input id="firstName" placeholder="First name">
+            <input id="lastName" placeholder="Last name">
+          </div>
+
+          <input id="email" placeholder="Email address">
+          <input id="phone" placeholder="Mobile number">
+
+          <div style="position:relative;">
+            <input id="password" type="password" placeholder="Password">
+            <span onclick="togglePassword('password')" 
+              style="position:absolute; right:10px; top:50%; transform:translateY(-50%); cursor:pointer;">
+              👁️
+            </span>
+          </div>
+
+          <button id="registerBtn" class="primary-btn" onclick="handleRegister()">Create account</button>
+
+          
+
+        </div>
+
+        <!-- LOGIN -->
+        <div id="loginForm" class="hidden">
+
+          <h2>Login</h2>
+          <p class="subtitle">Enter your credentials</p>
+
+          <input id="loginEmail" placeholder="Email address">
+
+          <div style="position:relative;">
+            <input id="loginPassword" type="password" placeholder="Password">
+            <span onclick="togglePassword('loginPassword')" 
+              style="position:absolute; right:10px; top:50%; transform:translateY(-50%); cursor:pointer;">
+              👁️
+            </span>
+          </div>
+
+          <button class="primary-btn" onclick="handleLogin()">Login</button>
+            
+          <p style="text-align:center; margin-top:10px;">
+            Don’t have an account?
+            <span onclick="showRegister()" style="color:#2563eb; cursor:pointer;">
+              Register
+            </span>
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    getLocation();
+  });
+</script>
+
+</body>
+</html>
